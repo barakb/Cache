@@ -1,0 +1,57 @@
+<project name="Cache" default="dist" basedir=".">
+    <description>
+        Build the Cache project
+    </description>
+    <property name="src.dir" location="src"/>
+    <property name="tests.dir" location="tests"/>
+    <property name="build.dir" location="build"/>
+    <property name="dist.dir" location="dist"/>
+
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="init" description="compile the source ">
+        <javac debug="true" deprecation="on" destdir="${build.dir}" optimize="yes" verbose="false">
+            <src location="${src.dir}"/>
+            <src location="${tests.dir}"/>
+            <classpath>
+                <fileset dir="${basedir}/lib" includes="*.jar"/>
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="tests" depends="compile">
+        <junit printsummary="yes" haltonfailure="yes">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+                <fileset dir="${basedir}/lib" includes="*.jar"/>
+            </classpath>
+            <formatter type="brief" usefile="false"/>
+            <batchtest fork="yes">
+                <fileset dir="${tests.dir}">
+                    <include name="**/*Test.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+
+    <target name="dist" depends="tests"
+            description="generate the distribution">
+        <jar jarfile="${dist.dir}/cache.jar" basedir="${build.dir}"/>
+        <delete file="${dist.dir}/cache-src.zip" />
+        <zip destfile="${dist.dir}/cache-src.zip">
+            <zipfileset dir="lib" prefix="cache/lib"/>
+            <zipfileset dir="src" prefix="cache/src"/>
+            <zipfileset dir="tests" prefix="cache/tests"/>
+            <zipfileset dir="." includes="build.xml" fullpath="cache/build.xml"/>
+        </zip>
+    </target>
+
+    <target name="clean"
+            description="clean up">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+</project>
