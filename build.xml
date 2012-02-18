@@ -4,6 +4,7 @@
     </description>
     <property name="src.dir" location="src"/>
     <property name="tests.dir" location="tests"/>
+    <property name="examples.dir" location="examples"/>
     <property name="build.dir" location="build"/>
     <property name="dist.dir" location="dist"/>
 
@@ -16,6 +17,7 @@
         <javac debug="true" deprecation="on" destdir="${build.dir}" optimize="yes" verbose="false">
             <src location="${src.dir}"/>
             <src location="${tests.dir}"/>
+            <src location="${examples.dir}"/>
             <classpath>
                 <fileset dir="${basedir}/lib" includes="*.jar"/>
             </classpath>
@@ -45,6 +47,7 @@
             <zipfileset dir="lib" prefix="cache/lib"/>
             <zipfileset dir="src" prefix="cache/src"/>
             <zipfileset dir="tests" prefix="cache/tests"/>
+            <zipfileset dir="examples" prefix="cache/examples"/>
             <zipfileset dir="." includes="build.xml" fullpath="cache/build.xml"/>
         </zip>
     </target>
