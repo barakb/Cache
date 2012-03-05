@@ -38,7 +38,7 @@ public class FileContentCache {
             long length = file.length();
 
             if (length > Integer.MAX_VALUE) {
-               throw new IllegalArgumentException("File it too large " + length);
+               throw new IllegalArgumentException("File is too large " + length);
             }
 
             byte[] bytes = new byte[(int) length];
