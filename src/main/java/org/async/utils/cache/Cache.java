@@ -9,7 +9,6 @@ import java.lang.ref.ReferenceQueue;
 import java.lang.ref.SoftReference;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -92,13 +91,8 @@ public class Cache<K, V> {
                 return ret;
             }
         }
-        ret = executor.submit(new Callable<V>() {
-            @Override
-            public V call() throws Exception {
-                return compute.compute(key);
-            }
-        });
-        SoftValue<K, Future<V>> value = new SoftValue<K, Future<V>>(ret, referenceQueue, key);
+        ret = executor.submit(() -> compute.compute(key));
+        SoftValue<K, Future<V>> value = new SoftValue<>(ret, referenceQueue, key);
         map.put(key, value);
         return ret;
     }

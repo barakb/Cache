@@ -56,7 +56,7 @@ public class DirectExecutorService implements ExecutorService {
 
     @Override
     public Future<?> submit(Runnable task) {
-        return new DirectFutureTask<Object>(task, null);
+        return new DirectFutureTask<>(task, null);
     }
 
     @Override

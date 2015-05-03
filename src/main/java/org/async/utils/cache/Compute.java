@@ -6,5 +6,5 @@ package org.async.utils.cache;
  * Time: 3:03:24 PM
  */
 public interface Compute<K, V> {
-    public V compute(K key) throws Exception;
+    V compute(K key) throws Exception;
 }

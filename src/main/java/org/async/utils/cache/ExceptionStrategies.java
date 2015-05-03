@@ -33,6 +33,7 @@ public class ExceptionStrategies {
         };
     }
 
+    @SuppressWarnings("unused")
     public static <K> ExceptionStrategy<K> not(final ExceptionStrategy<K> strategy) {
         return new ExceptionStrategy<K>() {
             @Override
@@ -42,6 +43,7 @@ public class ExceptionStrategies {
         };
     }
 
+    @SuppressWarnings({"unchecked", "unused"})
     public static <K> ExceptionStrategy<K> and(final ExceptionStrategy<K>... strategies) {
         return new ExceptionStrategy<K>() {
             @Override
@@ -56,6 +58,7 @@ public class ExceptionStrategies {
         };
     }
 
+    @SuppressWarnings({"unchecked", "unused"})
     public static <K> ExceptionStrategy<K> or(final ExceptionStrategy<K>... strategies) {
         return new ExceptionStrategy<K>() {
             @Override
