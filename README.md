@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/barakb/Cache.svg?branch=master)](https://travis-ci.org/barakb/Cache) 
+
 Cache -- An LRU Java Cache
 ==========================
 ## DESCRIPTION
