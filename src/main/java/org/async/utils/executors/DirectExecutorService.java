@@ -1,6 +1,7 @@
-package utils.executors;
+package org.async.utils.executors;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -13,7 +14,7 @@ import java.util.concurrent.*;
  * Time: 8:50:04 AM
  */
 public class DirectExecutorService implements ExecutorService {
-    private static final Logger logger = Logger.getLogger(DirectExecutorService.class);
+    private final static Logger logger = LoggerFactory.getLogger(DirectExecutorService.class);
 
     private volatile boolean stopped;
 

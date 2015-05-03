@@ -1,7 +1,8 @@
-package utils.cache;
+package org.async.utils.cache;
 
-import org.apache.log4j.Logger;
-import utils.executors.DirectExecutorService;
+import org.async.utils.executors.DirectExecutorService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
@@ -19,7 +20,7 @@ import java.util.concurrent.Future;
  * Time: 3:01:33 PM
  */
 public class Cache<K, V> {
-    private static final Logger logger = Logger.getLogger(Cache.class);
+    Logger logger = LoggerFactory.getLogger(Cache.class);
 
     private final Compute<K, V> compute;
     private final Map<K, SoftValue<K, Future<V>>> map;
