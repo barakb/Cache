@@ -9,12 +9,7 @@ You may copy or use any part of the code freely.
 Barak.
 Sample Usage:
 
-     Cache<String, byte[]> fileContentCache =
-                new Cache<String, byte[]>(new Compute<String, byte[]>() {
-                    @Override
-                    public byte[] compute(String key) throws Exception {
-                        return readFileContent(new File(key));
-                    }
-                }, 10);
+            Cache<String, byte[]> fileContentCache =
+                    new Cache<>(key -> readFileContent(new File(key)), 10);
 
-See _examples_ directory.
+See [example](https://github.com/barakb/Cache/blob/master/src/test/java/org/async/utils/cache/FileContentCache.java)
