@@ -12,9 +12,9 @@ Barak.
 
 Sample Usage:
 
-```Java
-            Cache<String, byte[]> fileContentCache =
-                    new Cache<>(key -> readFileContent(new File(key)), 10);
+```java
+    Cache<String, byte[]> fileContentCache =
+            new Cache<>(key -> readFileContent(new File(key)), 10);
 ```                    
 
 See [example](https://github.com/barakb/Cache/blob/master/src/test/java/org/async/utils/cache/FileContentCache.java)
