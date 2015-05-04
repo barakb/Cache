@@ -18,3 +18,14 @@ Sample Usage:
 ```                    
 
 See [example](https://github.com/barakb/Cache/blob/master/src/test/java/org/async/utils/cache/FileContentCache.java)
+
+
+Maven dependency
+
+```xml
+    <dependency>
+        <groupId>com.github.barakb</groupId>
+        <artifactId>concurrent-cache</artifactId>
+        <version>1.0</version>
+    </dependency>
+```
