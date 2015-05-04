@@ -11,6 +11,9 @@
 
     <name>concurrent-cache</name>
 
+    <description>Fast Flexible efficient in memory LRU Java cache</description>
+    <url>https://github.com/barakb/Cache</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j.version>1.7.12</slf4j.version>
