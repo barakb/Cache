@@ -4,7 +4,7 @@
                              http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.async</groupId>
+    <groupId>com.github.barakb</groupId>
     <artifactId>concurrent-cache</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
